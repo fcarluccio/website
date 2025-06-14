@@ -1,27 +1,241 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-    color: #333;
+body, html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400 !important; /* Normal thickness */
+  background-color: #fdf9f5;
+  padding-top: 140px; /*Adjust this value to match your header height */
+}
+
+* {
+  font-family: inherit;
 }
 
 header {
-    background-color: #007acc;
-    color: white;
-    padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 240px; */
+  z-index: 1000;
+  background: #fdf9f5; /* Or your preferred background color */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Optional: subtle shadow */
+  box-sizing: border-box;
+  padding: 40px;
 }
 
-main {
-    padding: 40px;
+.header-container {
+    max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
 }
+
+.logo img {
+    display: block;
+  height: 200px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-left: 60px; /* Adjust this value for desired space between logo and nav */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #80724b;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: #80724b;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-left: auto; /* Push social icons to the far right */
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-box {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensures blur doesn't overflow */
+}
+
+.hero-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/home/sky_background.png'); /* Use your image path */
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px); /* Adjust blur amount */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: black;
+  text-align: center;
+  background: rgba(0,0,0,0); /* Optional overlay */
+  padding: 30px 40px;
+  border-radius: 12px;
+}
+
+
 
 footer {
-    background-color: #222;
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background-color: #fdf9f5;
+  padding: 40px 20px;
+  font-family: serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-left p {
+  margin: 0;
+  color: #35584a;
+  font-size: 18px;
+}
+
+.footer-left a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: underline;
+  color: #80724b;
+  font-size: 18px;
+}
+
+.footer-center img {
+  max-height: 200px;
+}
+
+.footer-right a {
+  margin: 0 10px;
+}
+
+.footer-right img {
+  width: 24px;
+  height: 24px;
+}
+
+.gallery-section-home {
+  width: 100%;
+  padding: 60px 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-grid-home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 500px;
+  gap: 100px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* .gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+} */
+
+.img-large {
+  grid-column: span 2;
+  grid-row: span 1;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-v {
+  grid-column: span 1;
+  grid-row: span 1;
+  height: 500px;
+  object-fit: cover;
+}
+
+.gallery-section-events {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 20px 40px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-grid-events {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.img-events-small {
+  grid-column: span 1;
+  grid-row: span 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.img-events-vertical-1 {
+  grid-column: span 1;
+  grid-row: span 2;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.img-events-vertical-2 {
+  grid-column: span 1;
+  grid-row: span 3;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.img-events-horizontal {
+  grid-column: span 2;
+  grid-row: span 1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
