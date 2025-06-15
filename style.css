@@ -92,15 +92,16 @@ header {
 
 .hero-content {
   position: relative;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 300;
   z-index: 2;
-  color: black;
+  color: #80724b;
   text-align: center;
   background: rgba(0,0,0,0); /* Optional overlay */
   padding: 30px 40px;
   border-radius: 12px;
 }
-
-
 
 footer {
   background-color: #fdf9f5;
@@ -238,4 +239,76 @@ footer {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.about-alternate-grid {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 20px 40px;
+  background: #fdf9f5;
+  display: flex;
+  justify-content: center;
+}
+
+.alternate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.grid-item.text {
+  font-size: 18px;
+  color: #80724b;
+  background: #fdf9f5;
+  padding: 32px;
+  /* border-radius: 16px; */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.04); */
+}
+
+.grid-item.photo img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+drawings-box {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensures blur doesn't overflow */
+}
+
+/* .hero-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/home/sky_background.png'); 
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px); 
+  z-index: 1;
+} */
+
+.drawings-content {
+  position: relative;
+  font-size: 46px;
+  font-style: italic;
+  font-weight: 300;
+  z-index: 2;
+  color: #80724b;
+  text-align: left;
+  background: rgba(0,0,0,0); /* Optional overlay */
+  padding: 30px 400px 30px 40px;
+  border-radius: 12px;
 }
