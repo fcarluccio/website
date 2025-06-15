@@ -6,8 +6,16 @@ body, html {
   padding-top: 140px; /*Adjust this value to match your header height */
 }
 
+html {
+  box-sizing: border-box;
+}
+
 * {
   font-family: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 header {
@@ -18,7 +26,7 @@ header {
   /* height: 240px; */
   z-index: 1000;
   background: #fdf9f5; /* Or your preferred background color */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Optional: subtle shadow */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.03);  */
   box-sizing: border-box;
   padding: 40px;
 }
@@ -156,7 +164,7 @@ footer {
 .gallery-section-home {
   width: 100%;
   padding: 60px 0;
-  background: #fff;
+  background-color: #fdf9f5;
   display: flex;
   justify-content: center;
 }
@@ -197,7 +205,7 @@ footer {
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 20px 40px;
-  background: #fff;
+  background-color: #fdf9f5;
   display: flex;
   justify-content: center;
 }
@@ -205,7 +213,7 @@ footer {
 .gallery-grid-events {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 200px;
+  grid-auto-rows: 300px;
   gap: 10px;
   width: 100%;
   max-width: 100%;
@@ -247,7 +255,7 @@ footer {
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 20px 40px;
-  background: #fdf9f5;
+  background-color: #fdf9f5;
   display: flex;
   justify-content: center;
 }
@@ -265,7 +273,7 @@ footer {
 .grid-item.text {
   font-size: 18px;
   color: #80724b;
-  background: #fdf9f5;
+  background-color: #fdf9f5;
   padding: 32px;
   /* border-radius: 16px; */
   /* box-shadow: 0 2px 8px rgba(0,0,0,0.04); */
@@ -279,7 +287,7 @@ footer {
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-drawings-box {
+.drawings-box {
   position: relative;
   width: 100%;
   height: 350px;
@@ -289,26 +297,136 @@ drawings-box {
   overflow: hidden; /* Ensures blur doesn't overflow */
 }
 
-/* .hero-box::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('images/home/sky_background.png'); 
-  background-size: cover;
-  background-position: center;
-  filter: blur(20px); 
-  z-index: 1;
-} */
-
 .drawings-content {
   position: relative;
-  font-size: 46px;
+  font-size: clamp(24px, 2.5vw, 46px);
   font-style: italic;
   font-weight: 300;
   z-index: 2;
   color: #80724b;
   text-align: left;
-  background: rgba(0,0,0,0); /* Optional overlay */
-  padding: 30px 400px 30px 40px;
+  background: rgba(0,0,0,0);
+  padding: 30px min(15vw, 300px) 30px 40px;
   border-radius: 12px;
+  max-width: calc(100vw - 80px); /* 40px left + up to 40px right padding */
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* --- MOBILE STYLES --- */
+@media (max-width: 800px) {
+  body, html {
+    padding-top: 100px;
+  }
+
+  header {
+    padding: 20px 10px;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo img {
+    height: 150px;
+  }
+
+  .nav-links {
+    margin-left: 16px;
+    gap: 20px;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+
+  .social-icons {
+    margin-left: auto; /* This keeps social icons on the right */
+    gap: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+    }
+
+  .hero-box {
+    padding: 0;
+    height: 180px;
+  }
+  .hero-content {
+    font-size: 22px;
+    padding: 16px;
+  }
+
+  .drawings-box {
+    height: 180px;
+  }
+  .drawings-content {
+    font-size: 16px !important;
+    padding: 16px 24vw 16px 10px; /* More right padding (24vw), less left (10px) */
+  }
+
+  .gallery-section-home,
+  .gallery-section-events {
+    padding: 20px 10px; /* Match header's horizontal padding */
+    overflow-x: hidden;
+  }
+
+  .gallery-grid-home {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 8px;
+    width: 100%;           /* Use 100%, not 100vw */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gallery-grid-events {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 8px;
+    width: 100%;           /* Use 100%, not 100vw */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gallery-grid-home img,
+  .gallery-grid-events img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+
+  /* Adjust special image classes if needed */
+  /* .img-large,
+  .img-v,
+  .img-events-small,
+  .img-events-vertical-1,
+  .img-events-vertical-2,
+  .img-events-horizontal {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    height: 100% !important;
+  } */
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+  .footer-left, .footer-center, .footer-right {
+    min-width: unset;
+    flex: unset;
+  }
+  .footer-center img {
+    max-height: 80px;
+  }
 }
