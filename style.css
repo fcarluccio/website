@@ -3,7 +3,7 @@ body, html {
   font-family: 'Roboto', sans-serif !important;
   font-weight: 400 !important; /* Normal thickness */
   background-color: #fdf9f5;
-  padding-top: 140px; /*Adjust this value to match your header height */
+  padding-top: 10px; /*Adjust this value to match your header height */
 }
 
 html {
